@@ -1,0 +1,1 @@
+Ein interessantes HTML5-Element ist `<datalist>`. Damit kann man Eingabefelder (`<input>`) mit Vorschlägen verknüpfen, sodass der Nutzer beim Tippen eine Dropdown-Liste mit möglichen Werten angezeigt bekommt. Es kombiniert also die Flexibilität eines freien Textfeldes mit der Benutzerfreundlichkeit einer Auswahlliste.
