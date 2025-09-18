@@ -1,0 +1,98 @@
+/* Café Aurora — Theme Light
+   Konzept: viel Weißraum, dezente Serif-Überschriften, sanfte Schatten.
+   Fokus auf Lesbarkeit. */
+
+:root {
+  --bg: #ffffff;
+  --fg: #1f2937; /* Slategrey */
+  --muted: #6b7280; /* Grau für Sekundärtexte */
+  --brand: #2563eb; /* Blau für Akzente */
+  --brand-weak: #dbeafe;
+  --border: #e5e7eb;
+  --surface: #f8fafc;
+  --focus: #f59e0b; /* Amber, starker Fokuskontrast */
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--fg);
+  background: linear-gradient(#ffffff, #fafafa 40%);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; height: auto; display: block; border-radius: 14px; }
+figure { margin: 0; }
+
+.skip-link {
+  position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+}
+.skip-link:focus { position: static; width: auto; height: auto; padding: .5rem .75rem; background: var(--brand); color: #fff; }
+
+.site-header {
+  display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; align-items: center;
+  padding: 1rem 2rem; border-bottom: 1px solid var(--border); background: var(--bg);
+  position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(120%) blur(4px);
+}
+.brand h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; letter-spacing: .5px; }
+.brand .tagline { margin: 0; color: var(--muted); font-size: .95rem; }
+.logo { font-size: 1.6rem; margin-right: .5rem; }
+
+.site-nav ul { list-style: none; display: flex; gap: 1rem; padding: 0; margin: 0; }
+.site-nav a { text-decoration: none; color: var(--fg); padding: .5rem .75rem; border-radius: 10px; }
+.site-nav a:hover { background: var(--brand-weak); }
+.site-nav a:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+.header-actions { display: flex; gap: .5rem; }
+button { cursor: pointer; border: 0; background: var(--brand); color: #fff; padding: .6rem 1rem; border-radius: 12px; font-weight: 600; box-shadow: 0 6px 14px rgba(37,99,235,.15); }
+button.secondary { background: #e5e7eb; color: #111827; box-shadow: none; }
+button:hover { filter: brightness(1.05); }
+button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+.hero { padding: 1rem 2rem; }
+.hero figure { border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+.hero figcaption { padding: .75rem 1rem; color: var(--muted); }
+
+main { display: grid; grid-template-columns: minmax(0,1fr); gap: 2rem; padding: 1rem 2rem 3rem; }
+
+/* Tabelle */
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
+.table-wrap table { width: 100%; border-collapse: collapse; min-width: 720px; }
+caption { text-align: left; padding: 1rem; font-weight: 700; }
+thead th { position: sticky; top: 0; background: var(--brand); color: #fff; text-align: left; padding: .75rem 1rem; }
+tbody td, tbody th { padding: .65rem 1rem; border-bottom: 1px solid var(--border); }
+tbody tr:nth-child(even) { background: #f3f4f6; }
+
+.aside { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1rem; display: grid; grid-template-columns: 1fr 200px; gap: 1rem; align-items: start; }
+.aside ul { margin: 0; padding-left: 1.1rem; }
+.aside figcaption { color: var(--muted); font-size: .9rem; }
+
+.team-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
+.card { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,.04); display: grid; }
+.card-body { padding: 1rem; }
+
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
+
+/* Formular */
+.form { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1rem; }
+.form-row { display: grid; gap: .4rem; margin-bottom: .8rem; }
+.form-row.inline { grid-auto-flow: column; align-items: center; gap: 1rem; }
+label { font-weight: 600; }
+input[type="text"], input[type="email"], input[type="date"], input[type="time"], select, textarea {
+  width: 100%; padding: .6rem .7rem; border-radius: 12px; border: 1px solid var(--border); background: #fff; color: var(--fg);
+}
+input:focus, select:focus, textarea:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
+.form-actions { display: flex; gap: .5rem; margin-top: .6rem; }
+
+.hours { display: grid; grid-template-columns: repeat(3, auto); gap: .5rem 1.5rem; padding-left: 1rem; }
+
+.site-footer { padding: 2rem; border-top: 1px solid var(--border); color: var(--muted); text-align: center; background: var(--bg); }
+
+/* PRINT (extra Fleiß) */
+@media print {
+  .site-header, .hero figure img, .header-actions, .gallery, #reservierung { display: none !important; }
+  body { background: #fff; }
+  a::after { content: " (" attr(href) ")"; font-size: .9em; }
+}

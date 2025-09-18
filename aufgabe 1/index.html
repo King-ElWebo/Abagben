@@ -1,0 +1,251 @@
+
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Café Aurora — Handwerk & Herz</title>
+  <meta name="description" content="Café Aurora: Spezialitätenkaffee, frische Patisserie, herzliche Bar-Atmosphäre. Öffnungszeiten, Speisekarte, Team & Kontakt.">
+
+  <!-- Standard-Theme (hell) -->
+  <link id="themeStylesheet" rel="stylesheet" href="css/theme-light.css">
+
+  <link rel="preload" as="image" href="images/cafe-front.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='70' x='10' font-size='70'>☕</text></svg>">
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header" role="banner">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">☕</span>
+      <h1>Café Aurora</h1>
+      <p class="tagline">Handwerk & Herz seit 2012</p>
+    </div>
+    <nav aria-label="Hauptnavigation" class="site-nav">
+      <ul>
+        <li><a href="#speisekarte">Speisekarte</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#reservierung">Reservierung</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button id="themeToggle" type="button" aria-pressed="false" aria-label="Theme umschalten">Theme wechseln</button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" aria-label="Intro">
+      <figure>
+        <img src="images/cafe-front.jpg" alt="Eingang des Café Aurora mit warmem Licht" loading="eager">
+        <figcaption>Willkommen im Café Aurora — dein Lieblingsplatz für ruhige Morgen und lange Abende.</figcaption>
+      </figure>
+    </section>
+
+    <section id="speisekarte" aria-labelledby="speisekarte-title">
+      <h2 id="speisekarte-title">Speisekarte</h2>
+      <p>Unsere Klassiker und saisonalen Specials. Alles auch zum Mitnehmen.</p>
+
+      <!-- Verbindliche Tabellenanforderung: caption, thead, tbody, mind. 10 Datenzeilen -->
+      <div class="table-wrap" role="region" aria-label="Speisekarten-Tabelle">
+        <table>
+          <caption>Getränke & Patisserie — Preise in EUR</caption>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Artikel</th>
+              <th scope="col">Beschreibung</th>
+              <th scope="col">Kategorie</th>
+              <th scope="col">Preis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">1</th><td>Espresso</td><td>95% Arabica, 5% Robusta</td><td>Kaffee</td><td>2,20</td></tr>
+            <tr><th scope="row">2</th><td>Americano</td><td>Espresso verlängert</td><td>Kaffee</td><td>2,90</td></tr>
+            <tr><th scope="row">3</th><td>Cappuccino</td><td>Mit feinporigem Milchschaum</td><td>Kaffee</td><td>3,60</td></tr>
+            <tr><th scope="row">4</th><td>Flat White</td><td>Double Shot, seidig</td><td>Kaffee</td><td>4,20</td></tr>
+            <tr><th scope="row">5</th><td>Latte Macchiato</td><td>Milchglas, sanft</td><td>Kaffee</td><td>3,90</td></tr>
+            <tr><th scope="row">6</th><td>Matcha Latte</td><td>Bio Matcha, Hafermilch</td><td>Special</td><td>4,50</td></tr>
+            <tr><th scope="row">7</th><td>Cold Brew</td><td>18h extrahiert, auf Eis</td><td>Cold</td><td>4,60</td></tr>
+            <tr><th scope="row">8</th><td>Hauslimonade Zitrus</td><td>Frisch & spritzig</td><td>Cold</td><td>3,80</td></tr>
+            <tr><th scope="row">9</th><td>Croissant</td><td>Buttrig, täglich frisch</td><td>Patisserie</td><td>2,60</td></tr>
+            <tr><th scope="row">10</th><td>Zimtschnecke</td><td>Mit Kardamom</td><td>Patisserie</td><td>3,10</td></tr>
+            <tr><th scope="row">11</th><td>Cheesecake</td><td>New York Style</td><td>Kuchen</td><td>3,90</td></tr>
+            <tr><th scope="row">12</th><td>Veganes Banana Bread</td><td>Walnüsse, Zartbitter</td><td>Kuchen</td><td>3,70</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <aside class="aside" aria-labelledby="aside-title">
+      <h2 id="aside-title">Heute im Fokus</h2>
+      <ul>
+        <li><strong>Single Origin:</strong> Äthiopien Guji, Noten von Mango & Kakaonibs</li>
+        <li><strong>Gebäck:</strong> Pistazien-Frangipane-Törtchen</li>
+        <li><strong>Happy Hour:</strong> 17–19 Uhr, -20% auf Cold Brew</li>
+      </ul>
+      <figure>
+        <img src="images/latte-art.jpg" alt="Latte Art in einer Keramiktasse" loading="lazy">
+        <figcaption>Latte Art von Luca — jedes Muster ein kleines Ritual.</figcaption>
+      </figure>
+    </aside>
+
+    <section id="team" aria-labelledby="team-title">
+      <h2 id="team-title">Unser Team</h2>
+      <div class="team-grid">
+        <article class="card">
+          <img src="images/team-ana.jpg" alt="Barista Ana mit Siebträger">
+          <div class="card-body">
+            <h3>Ana — Head Barista</h3>
+            <p>Wasserkenntnis auf <em>V60-Level 9000</em>, liebt helle Röstungen & Jazz am Morgen.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="images/team-luca.jpg" alt="Barista Luca gießt Latte Art">
+          <div class="card-body">
+            <h3>Luca — Latte Artist</h3>
+            <p>Zaubert Schwanenhälse aus Milch. Trinkt privat nur Espresso <abbr title="Doppio">Dbl</abbr>.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="images/team-samira.jpg" alt="Patissière Samira mit Törtchen">
+          <div class="card-body">
+            <h3>Samira — Patisserie</h3>
+            <p>Feinmotorik + Gewürzmagie = Wow. Spezialität: Zitrus & Pistazie.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="galerie" aria-labelledby="galerie-title">
+      <h2 id="galerie-title">Galerie</h2>
+      <div class="gallery">
+        <figure>
+          <img src="images/pastry.jpg" alt="Frische Patisserie im Regal" loading="lazy">
+          <figcaption>Morgendliche Auswahl — solange der Vorrat reicht.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/latte-art.jpg" alt="Nahaufnahme Latte Art Rosetta" loading="lazy">
+          <figcaption>Rosetta-Perfektion.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="reservierung" aria-labelledby="reservierung-title">
+      <h2 id="reservierung-title">Reservierung</h2>
+      <p>Für Gruppen ab 4 Personen empfehlen wir eine Reservierung. Spontan ist immer willkommen!</p>
+
+      <!-- Verbindliche Formularanforderung -->
+      <form action="#" method="post" class="form" novalidate>
+        <fieldset>
+          <legend>Deine Angaben</legend>
+          <div class="form-row">
+            <label for="name">Name*</label>
+            <input id="name" name="name" type="text" placeholder="Vor- und Nachname" required>
+          </div>
+          <div class="form-row">
+            <label for="email">E-Mail*</label>
+            <input id="email" name="email" type="email" placeholder="du@example.com" required>
+          </div>
+          <div class="form-row">
+            <label for="datum">Datum*</label>
+            <input id="datum" name="datum" type="date" required>
+          </div>
+          <div class="form-row">
+            <label for="zeit">Zeit*</label>
+            <input id="zeit" name="zeit" type="time" required>
+          </div>
+          <div class="form-row">
+            <label for="personen">Personen*</label>
+            <select id="personen" name="personen" required>
+              <option value="" selected disabled>Bitte wählen</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8+</option>
+            </select>
+          </div>
+          <div class="form-row inline">
+            <span>Bereich</span>
+            <label><input type="radio" name="bereich" value="innen" checked> Innen</label>
+            <label><input type="radio" name="bereich" value="garten"> Garten</label>
+          </div>
+          <div class="form-row">
+            <label for="hinweis">Hinweise</label>
+            <textarea id="hinweis" name="hinweis" rows="4" placeholder="Allergien, Anlässe, Wünsche…"></textarea>
+          </div>
+          <div class="form-row inline">
+            <label><input type="checkbox" name="agb" required> Ich akzeptiere die <a href="#">AGB</a>.</label>
+          </div>
+          <div class="form-actions">
+            <button type="submit">Anfrage senden</button>
+            <button type="reset" class="secondary">Zurücksetzen</button>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+    <section id="kontakt" aria-labelledby="kontakt-title">
+      <h2 id="kontakt-title">Kontakt & Öffnungszeiten</h2>
+      <address>
+        <p><strong>Adresse:</strong> Sonnenallee 17, 1010 Wien</p>
+        <p><strong>Telefon:</strong> <a href="tel:+4312345678">+43 1 234 56 78</a></p>
+        <p><strong>E-Mail:</strong> <a href="mailto:hallo@cafe-aurora.at">hallo@cafe-aurora.at</a></p>
+      </address>
+      <ul class="hours">
+        <li>Mo–Fr: 07:30–20:00</li>
+        <li>Sa: 08:00–21:00</li>
+        <li>So & Feiertag: 09:00–18:00</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>© <span id="year"></span> Café Aurora · <a href="#">Impressum</a> · <a href="#">Datenschutz</a></p>
+  </footer>
+
+  <script>
+    // Mini-Enhancements, keine Frameworks
+    (function(){
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
+
+      const btn = document.getElementById('themeToggle');
+      const link = document.getElementById('themeStylesheet');
+      const LIGHT = 'css/theme-light.css';
+      const ACCENT = 'css/theme-accent.css';
+
+      function current() { return link.getAttribute('href'); }
+      function set(href){ link.setAttribute('href', href); localStorage.setItem('aurora-theme', href); }
+
+      const saved = localStorage.getItem('aurora-theme');
+      if (saved) set(saved);
+
+      btn && btn.addEventListener('click', function(){
+        const next = current() === LIGHT ? ACCENT : LIGHT;
+        set(next);
+        const pressed = next === ACCENT;
+        btn.setAttribute('aria-pressed', String(pressed));
+      });
+    })();
+  </script>
+
+  <!--
+    ===============================
+    DOKUMENTATION (für Abgabe)
+    ===============================
+    • KI-Einsatz: Strukturvorschlag, Beispieltexte, Grundstyles und semantische Checks wurden mit KI (ChatGPT) generiert.
+    • Eigenleistung: Bildauswahl/Beschaffung, finale Inhalte (Preise, Öffnungszeiten), Feintuning der Typografie, Dateiablage & Validierung im Validator.
+    • Reflexion:
+      - Positiv: Schnelle Ideengenerierung, barrierearme Grundstruktur, konsistente Komponenten (Cards, Tabellen, Formulare).
+      - Kritisch: KI-CSS nicht blind übernehmen: Zeilenhöhen, Fokuszustände, Kontrastwerte und Print-Verhalten wurden manuell nachgeschärft.
+      - Unklar/verbesserungswürdig markiert: Siehe CSS-Kommentare „UNCLEAR:“.
+  -->
+</body>
+</html>
