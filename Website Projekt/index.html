@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>WMC Projekt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Wilk Seite</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">Über mich</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Galerie</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="hero text-light d-flex align-items-center text-center">
+    <div class="container">
+        <h1 class="display-4">Responsive Webseite</h1>
+        <p class="lead">HTML · CSS · Bootstrap</p>
+    </div>
+</header>
+
+<main class="container my-5">
+
+    <!-- Einführung -->
+    <section class="mb-5">
+        <h2>Einführung</h2>
+        <p>
+            Diese Webseite ist ein Beispielprojekt für eine responsive Gestaltung mit Bootstrap und eigenem CSS.
+        </p>
+        <p>
+            Der Fokus liegt auf der technischen Umsetzung und nicht auf einem ausgefallenen Design.
+        </p>
+    </section>
+
+    <!-- Grid -->
+    <div class="row">
+        <section class="col-lg-8">
+            <h2>Artikelübersicht</h2>
+
+            <article class="card mb-4">
+                <div class="card-body">
+                    <h3>Was ist HTML?</h3>
+                    <p>HTML definiert die Struktur einer Webseite.</p>
+                </div>
+            </article>
+
+            <article class="card mb-4">
+                <div class="card-body">
+                    <h3>Was ist CSS?</h3>
+                    <p>CSS ist für Design, Layout und Animationen zuständig.</p>
+                </div>
+            </article>
+
+            <article class="card mb-4">
+                <div class="card-body">
+                    <h3>Warum Bootstrap?</h3>
+                    <ul>
+                        <li>Schnelle Entwicklung</li>
+                        <li>Responsives Grid-System</li>
+                        <li>Vorgefertigte Komponenten</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+        <aside class="col-lg-4">
+            <h2>Technische Daten</h2>
+
+            <img src="https://picsum.photos/400/250"
+                 class="img-fluid rounded mb-3"
+                 alt="Zufallsbild">
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>Feature</th>
+                    <th>Verwendet</th>
+                </tr>
+                <tr>
+                    <td>Flexbox</td>
+                    <td>Ja</td>
+                </tr>
+                <tr>
+                    <td>Grid</td>
+                    <td>Ja</td>
+                </tr>
+                <tr>
+                    <td>Media Queries</td>
+                    <td>Ja</td>
+                </tr>
+            </table>
+        </aside>
+    </div>
+
+    <!-- Video -->
+    <section class="mt-5">
+        <h2>Erklärvideo</h2>
+        <p>Ein eingebettetes Video als Multimedia-Element.</p>
+        <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Formular -->
+    <section class="mt-5">
+        <h2>Feedback</h2>
+        <form class="border p-4 rounded">
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nachricht</label>
+                <textarea class="form-control"></textarea>
+            </div>
+            <button class="btn btn-success">Senden</button>
+        </form>
+    </section>
+
+</main>
+
+<footer class="bg-dark text-light text-center p-3">
+    © 2026 – Wilk WMC Projekt
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
