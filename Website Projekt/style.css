@@ -1,32 +1,330 @@
-/* Allgemein */
-body {
-    font-family: Arial, sans-serif;
-}
+/* =========================
+   Design System / Variablen
+   ========================= */
 
-/* Hero Bereich */
-.hero {
-    background: linear-gradient(to right, #0d6efd, #084298);
-    height: 40vh;
-}
+:root{ /* Root = globale CSS-Variablen, gelten überall */
+  --bg: #0b1220; /* Hintergrundfarbe (dunkel) als Theme-Basis */
+  --text: #0f172a; /* Standard-Textfarbe (sehr dunkel) */
+  --muted: #6b7280; /* Gedämpfte Textfarbe (für Hinweise/Secondary) */
 
-/* Pseudoselektor */
-a:hover {
-    text-decoration: underline;
-}
+  --brand: #22c55e; /* Primärfarbe (grün) */
+  --brand2: #16a34a; /* Zweite Brand-Farbe (dunkleres grün) */
 
-/* Animation */
-.card {
-    transition: transform 0.3s;
-}
+  --card: #ffffff; /* Karten-Hintergrund (weiß) */
+  --radius: 18px; /* Standard-Rundung für Cards/Container */
+  --shadow: 0 12px 30px rgba(15, 23, 42, .12); /* Stärkerer Schatten */
+  --shadow-soft: 0 10px 22px rgba(15, 23, 42, .10); /* Weicher Schatten */
 
-.card:hover {
-    transform: scale(1.03);
-}
+  --border: rgba(15, 23, 42, .10); /* Standard-Randfarbe (leicht transparent) */
+} /* Ende :root */
 
-/* Media Query */
-@media (max-width: 768px) {
-    .hero {
-        height: 30vh;
-        text-align: center;
-    }
-}
+
+/* =========================
+   Accessibility (Barrierefreiheit)
+   ========================= */
+
+.skip-link{ /* Link zum direkten Springen zum Inhalt (Keyboard/User) */
+  position:absolute; /* wird aus dem normalen Layout genommen */
+  left:-999px; /* außerhalb des sichtbaren Bereichs verschieben */
+  top:10px; /* vertikale Position (falls sichtbar) */
+  background:#fff; /* Hintergrund weiß, damit gut sichtbar */
+  padding:.6rem 1rem; /* Innenabstand: oben/unten + links/rechts */
+  border-radius:999px; /* extrem rund (Pill-Form) */
+  z-index:9999; /* ganz oben über andere Elemente legen */
+} /* Ende .skip-link */
+
+.skip-link:focus{ /* wenn per Tastatur fokussiert */
+  left:10px; /* in den sichtbaren Bereich holen */
+} /* Ende :focus */
+
+
+/* =========================
+   Branding (kleiner Punkt neben Logo)
+   ========================= */
+
+.brand-dot{ /* kleiner farbiger Punkt als Logo-Detail */
+  width:12px; /* Breite */
+  height:12px; /* Höhe */
+  border-radius:999px; /* Kreisform */
+  background: linear-gradient(135deg, var(--brand), #60a5fa); /* Farbverlauf grün -> blau */
+  display:inline-block; /* verhält sich wie Text/Logo-Element */
+} /* Ende .brand-dot */
+
+
+/* =========================
+   Hero Bereich (großer Kopfbereich)
+   ========================= */
+
+.hero{ /* Hero Container */
+  position:relative; /* nötig, damit Overlay/Absolute Elemente relativ dazu sind */
+  padding: 4.5rem 0 3.5rem; /* oben/unten Abstand (groß) */
+  background:
+    radial-gradient(900px 400px at 20% 20%, rgba(34,197,94,.35), transparent 60%), /* grüner Licht-Fleck links */
+    radial-gradient(900px 400px at 70% 30%, rgba(96,165,250,.25), transparent 60%), /* blauer Licht-Fleck rechts */
+    linear-gradient(180deg, #0b1220, #070b14); /* dunkler Verlauf nach unten */
+  overflow:hidden; /* verhindert, dass Effekte außen rausstehen */
+} /* Ende .hero */
+
+.hero-overlay{ /* Overlay-Bild/Texture über dem Hero */
+  position:absolute; /* über dem Hero platzieren */
+  inset:0; /* top/right/bottom/left = 0 (füllt komplett) */
+  background: url("https://picsum.photos/1600/900?blur=2") center/cover no-repeat; /* Hintergrundbild mittig, skaliert */
+  opacity:.18; /* leicht sichtbar */
+  filter:saturate(1.1); /* etwas mehr Farbsättigung */
+} /* Ende .hero-overlay */
+
+.hero-wave{ /* „Welle“ unten als Übergang zum weißen Bereich */
+  position:absolute; /* am Hero befestigt */
+  left:0; /* links 0 */
+  right:0; /* rechts 0 */
+  bottom:-2px; /* minimal nach unten für saubere Kante */
+  height:64px; /* Höhe der Welle */
+  background: linear-gradient(180deg, transparent, #fff); /* transparent nach weiß */
+} /* Ende .hero-wave */
+
+.text-light-75{ /* eigene Hilfsklasse für hellen Text (leicht transparent) */
+  color: rgba(255,255,255,.78) !important; /* weiß mit 78% Deckkraft */
+} /* Ende .text-light-75 */
+
+
+/* =========================
+   Hero Statistik-Kacheln
+   ========================= */
+
+.hero-stats{ /* Container für die Stat-Karten */
+  display:flex; /* nebeneinander */
+  gap:1.25rem; /* Abstand zwischen den Boxen */
+} /* Ende .hero-stats */
+
+.stat{ /* einzelne Stat-Box */
+  background: rgba(255,255,255,.08); /* leicht transparentes Weiß */
+  border: 1px solid rgba(255,255,255,.12); /* heller Rand */
+  border-radius: 16px; /* Rundung */
+  padding: .85rem 1rem; /* Innenabstand */
+  min-width: 110px; /* Mindestbreite, damit es gleichmäßig wirkt */
+} /* Ende .stat */
+
+.stat-number{ /* Zahl in der Stat */
+  font-weight: 800; /* sehr fett */
+  font-size: 1.25rem; /* größer */
+  color:#fff; /* weiß */
+} /* Ende .stat-number */
+
+.stat-label{ /* Text unter der Zahl */
+  font-size:.85rem; /* kleiner */
+  color: rgba(255,255,255,.75); /* leicht transparentes Weiß */
+} /* Ende .stat-label */
+
+
+/* =========================
+   Glassmorphism Card (transparent)
+   ========================= */
+
+.glass-card{ /* transparente „Glas“-Karte */
+  background: rgba(255,255,255,.10); /* halbtransparent */
+  border: 1px solid rgba(255,255,255,.15); /* heller Rand */
+  border-radius: var(--radius); /* Rundung aus Variablen */
+  box-shadow: 0 18px 50px rgba(0,0,0,.25); /* Schatten für Tiefe */
+  color:#fff; /* Text weiß */
+  backdrop-filter: blur(8px); /* Hintergrund weichzeichnen (Glas-Effekt) */
+} /* Ende .glass-card */
+
+.glass-card .text-muted{ /* muted Text innerhalb glass-card */
+  color: rgba(255,255,255,.70) !important; /* trotzdem hell, aber etwas gedämpft */
+} /* Ende .glass-card .text-muted */
+
+
+/* =========================
+   Seiten-Header (bei about/gallery)
+   ========================= */
+
+.page-head{ /* Kopfbereich für Unterseiten */
+  background: linear-gradient(180deg, #ffffff, #f3f4f6); /* heller Verlauf */
+  border-bottom: 1px solid var(--border); /* Linie unten */
+  padding: 3rem 0 2rem; /* vertikaler Abstand */
+} /* Ende .page-head */
+
+
+/* =========================
+   Section Titles (Überschriften + Subtext)
+   ========================= */
+
+.section-title{ /* Container für h2 + description */
+  display:flex; /* Flex Layout */
+  flex-direction:column; /* untereinander */
+  gap:.25rem; /* kleiner Abstand */
+  margin-bottom: .5rem; /* Abstand nach unten */
+} /* Ende .section-title */
+
+
+/* =========================
+   Cards allgemein
+   ========================= */
+
+.soft-card{ /* Card mit weichem Schatten und Rand */
+  border: 1px solid var(--border); /* feiner Rand */
+  border-radius: var(--radius); /* schöne Rundung */
+  box-shadow: var(--shadow-soft); /* weicher Schatten */
+} /* Ende .soft-card */
+
+
+/* =========================
+   Feature Cards (4 Kacheln)
+   ========================= */
+
+.feature-card{ /* Card für Features */
+  background: var(--card); /* weiß */
+  border: 1px solid var(--border); /* Rand */
+  border-radius: var(--radius); /* Rundung */
+  padding: 1.25rem; /* Innenabstand */
+  box-shadow: var(--shadow-soft); /* weicher Schatten */
+  transition: transform .18s ease, box-shadow .18s ease; /* Animation für Hover */
+} /* Ende .feature-card */
+
+.feature-card:hover{ /* Hover Effekt */
+  transform: translateY(-3px); /* leicht nach oben */
+  box-shadow: var(--shadow); /* stärkerer Schatten */
+} /* Ende Hover */
+
+.feature-icon{ /* Icon-Box oben in Feature Card */
+  width:46px; /* Breite */
+  height:46px; /* Höhe */
+  border-radius: 14px; /* Rundung */
+  display:grid; /* Grid */
+  place-items:center; /* zentriert Icon horizontal+vertikal */
+  background: rgba(34,197,94,.12); /* hellgrüner Hintergrund */
+  color: var(--brand2); /* Icon-Farbe */
+  font-size: 1.15rem; /* Icon-Größe */
+  margin-bottom: .85rem; /* Abstand nach unten */
+} /* Ende .feature-icon */
+
+
+/* =========================
+   Kleine Icon-Kacheln (z.B. Kontaktinfos)
+   ========================= */
+
+.mini-icon{ /* kleine Icon-Fläche */
+  width:40px; /* Breite */
+  height:40px; /* Höhe */
+  border-radius: 14px; /* Rundung */
+  display:grid; /* Grid für Zentrierung */
+  place-items:center; /* zentriert Icon */
+  background: rgba(15,23,42,.06); /* sehr leichter dunkler Hintergrund */
+  color: #111827; /* dunkles Icon */
+} /* Ende .mini-icon */
+
+
+/* =========================
+   Timeline (Über mich)
+   ========================= */
+
+.timeline{ /* Container für Timeline */
+  position:relative; /* für Linie (before) */
+  padding-left: 1.25rem; /* Platz links für Linie/Dots */
+} /* Ende .timeline */
+
+.timeline:before{ /* vertikale Linie links */
+  content:""; /* erzeugt pseudo-element */
+  position:absolute; /* absolut im Container */
+  left:.35rem; /* Abstand links */
+  top:.25rem; /* Abstand oben */
+  bottom:.25rem; /* Abstand unten */
+  width:2px; /* Linienstärke */
+  background: rgba(15,23,42,.12); /* graue Linie */
+} /* Ende :before */
+
+.timeline-item{ /* ein Timeline-Punkt */
+  position:relative; /* für Dot-Position */
+  padding: .25rem 0 .25rem 1.25rem; /* links Platz für Dot */
+  margin-bottom: 1rem; /* Abstand nach unten */
+} /* Ende .timeline-item */
+
+.timeline-dot{ /* grüner Punkt */
+  position:absolute; /* auf Linie */
+  left:-.12rem; /* leicht links für Zentrierung */
+  top:.55rem; /* nach unten */
+  width:12px; /* Größe */
+  height:12px; /* Größe */
+  border-radius:999px; /* Kreis */
+  background: var(--brand); /* grün */
+  box-shadow: 0 0 0 4px rgba(34,197,94,.18); /* Ring um Dot */
+} /* Ende .timeline-dot */
+
+.timeline-content{ /* Box neben Timeline */
+  background:#fff; /* weiß */
+  border:1px solid var(--border); /* Rand */
+  border-radius: 16px; /* Rundung */
+  padding: 1rem; /* Innenabstand */
+  box-shadow: var(--shadow-soft); /* weicher Schatten */
+} /* Ende .timeline-content */
+
+
+/* =========================
+   Galerie Cards
+   ========================= */
+
+.gallery-card{ /* Klickbare Card */
+  cursor:pointer; /* Maus zeigt Click an */
+  transition: transform .18s ease, box-shadow .18s ease; /* Hover Animation */
+} /* Ende .gallery-card */
+
+.gallery-card:hover{ /* Hover */
+  transform: translateY(-3px); /* nach oben */
+  box-shadow: var(--shadow); /* stärkerer Schatten */
+} /* Ende Hover */
+
+.gallery-card img{ /* Bilder in Galerie */
+  border-top-left-radius: var(--radius); /* oben links rund */
+  border-top-right-radius: var(--radius); /* oben rechts rund */
+} /* Ende .gallery-card img */
+
+.gallery-item.is-hidden{ /* wenn gefiltert -> unsichtbar */
+  display:none; /* komplett ausblenden */
+} /* Ende .is-hidden */
+
+
+/* =========================
+   Footer
+   ========================= */
+
+.footer{ /* Footer Bereich */
+  background:#0b1220; /* dunkel */
+  color:#fff; /* Text weiß */
+  margin-top: 4rem; /* Abstand nach oben */
+} /* Ende .footer */
+
+.footer-link{ /* Footer Links */
+  color: rgba(255,255,255,.75); /* leicht transparent */
+  text-decoration:none; /* keine Unterstreichung */
+  margin-left: .8rem; /* Abstand zwischen Links */
+} /* Ende .footer-link */
+
+.footer-link:hover{ /* Hover */
+  color:#fff; /* weiß */
+  text-decoration:underline; /* unterstrichen */
+} /* Ende Hover */
+
+
+/* =========================
+   Fokus (Tastatur-Navigation)
+   ========================= */
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus{ /* für viele Elemente ein einheitlicher Fokus-Ring */
+  outline: none !important; /* Standard-Outline aus */
+  box-shadow: 0 0 0 .25rem rgba(34,197,94,.25) !important; /* grüner Fokus-Ring */
+} /* Ende Focus */
+
+
+/* =========================
+   Responsive Anpassungen
+   ========================= */
+
+@media (max-width: 991px){ /* alles unterhalb ~Tablet/Laptop Grenze */
+  .hero-stats{ /* Stats im Hero */
+    flex-wrap:wrap; /* umbrechen in mehrere Zeilen */
+  } /* Ende .hero-stats */
+} /* Ende Media Query */

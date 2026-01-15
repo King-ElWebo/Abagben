@@ -1,37 +1,230 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Galerie</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Galerie – Wilk Seite</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <a class="skip-link" href="#content">Zum Inhalt springen</a>
 
-<nav class="navbar navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="index.html">← Home</a>
+      <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="index.html">
+        <span class="brand-dot"></span> Wilk Seite
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
+              aria-controls="nav" aria-expanded="false" aria-label="Navigation umschalten">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">Über mich</a></li>
+          <li class="nav-item"><a class="nav-link active" href="gallery.html">Galerie</a></li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
 
-<main class="container my-5">
-    <h1>Bildergalerie</h1>
-    <p>Beispiel für ein Grid mit Bildern.</p>
-
-    <div class="row g-3">
-        <div class="col-6 col-md-4">
-            <img src="https://picsum.photos/300?1" class="img-fluid rounded">
-        </div>
-        <div class="col-6 col-md-4">
-            <img src="https://picsum.photos/300?2" class="img-fluid rounded">
-        </div>
-        <div class="col-6 col-md-4">
-            <img src="https://picsum.photos/300?3" class="img-fluid rounded">
-        </div>
+  <header class="page-head">
+    <div class="container">
+      <h1 class="mb-2">Galerie</h1>
+      <p class="text-muted mb-0">Filterbare Karten + Modal Lightbox.</p>
     </div>
-</main>
+  </header>
 
+  <main id="content" class="container my-5">
+
+    <div class="d-flex flex-wrap gap-2 align-items-center mb-4">
+      <button class="btn btn-outline-dark btn-sm filter-btn active" data-filter="all">Alle</button>
+      <button class="btn btn-outline-dark btn-sm filter-btn" data-filter="web">Web</button>
+      <button class="btn btn-outline-dark btn-sm filter-btn" data-filter="ui">UI</button>
+      <button class="btn btn-outline-dark btn-sm filter-btn" data-filter="code">Code</button>
+      <div class="ms-auto small text-muted">Klicke ein Bild für Vollansicht.</div>
+    </div>
+
+    <div class="row g-4" id="galleryGrid">
+      <!-- 12 Beispielbilder -->
+      <!-- Du kannst die URLs durch eigene ersetzen -->
+      <div class="col-sm-6 col-lg-4 gallery-item" data-category="web">
+        <div class="card soft-card gallery-card" role="button"
+             data-bs-toggle="modal" data-bs-target="#imgModal"
+             data-img="https://picsum.photos/1200/800?random=11"
+             data-title="Web Layout">
+          <img src="https://picsum.photos/800/600?random=11" class="card-img-top" alt="Web Layout" loading="lazy">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h2 class="h6 mb-0">Web Layout</h2>
+              <span class="badge text-bg-dark">web</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gallery-item" data-category="ui">
+        <div class="card soft-card gallery-card" role="button"
+             data-bs-toggle="modal" data-bs-target="#imgModal"
+             data-img="https://picsum.photos/1200/800?random=12"
+             data-title="UI Cards">
+          <img src="https://picsum.photos/800/600?random=12" class="card-img-top" alt="UI Cards" loading="lazy">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h2 class="h6 mb-0">UI Cards</h2>
+              <span class="badge text-bg-dark">ui</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gallery-item" data-category="code">
+        <div class="card soft-card gallery-card" role="button"
+             data-bs-toggle="modal" data-bs-target="#imgModal"
+             data-img="https://picsum.photos/1200/800?random=13"
+             data-title="Code Snippet">
+          <img src="https://picsum.photos/800/600?random=13" class="card-img-top" alt="Code Snippet" loading="lazy">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h2 class="h6 mb-0">Code Snippet</h2>
+              <span class="badge text-bg-dark">code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- kopiere diese 3er-blöcke beliebig -->
+      <div class="col-sm-6 col-lg-4 gallery-item" data-category="web">
+        <div class="card soft-card gallery-card" role="button"
+             data-bs-toggle="modal" data-bs-target="#imgModal"
+             data-img="https://picsum.photos/1200/800?random=14"
+             data-title="Landing Page">
+          <img src="https://picsum.photos/800/600?random=14" class="card-img-top" alt="Landing Page" loading="lazy">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h2 class="h6 mb-0">Landing Page</h2>
+              <span class="badge text-bg-dark">web</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gallery-item" data-category="ui">
+        <div class="card soft-card gallery-card" role="button"
+             data-bs-toggle="modal" data-bs-target="#imgModal"
+             data-img="https://picsum.photos/1200/800?random=15"
+             data-title="UI Components">
+          <img src="https://picsum.photos/800/600?random=15" class="card-img-top" alt="UI Components" loading="lazy">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h2 class="h6 mb-0">UI Components</h2>
+              <span class="badge text-bg-dark">ui</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gallery-item" data-category="code">
+        <div class="card soft-card gallery-card" role="button"
+             data-bs-toggle="modal" data-bs-target="#imgModal"
+             data-img="https://picsum.photos/1200/800?random=16"
+             data-title="JS Interactions">
+          <img src="https://picsum.photos/800/600?random=16" class="card-img-top" alt="JS Interactions" loading="lazy">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h2 class="h6 mb-0">JS Interactions</h2>
+              <span class="badge text-bg-dark">code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gallery-item" data-category="web">
+        <div class="card soft-card gallery-card" role="button"
+             data-bs-toggle="modal" data-bs-target="#imgModal"
+             data-img="https://picsum.photos/1200/800?random=17"
+             data-title="Blog Layout">
+          <img src="https://picsum.photos/800/600?random=17" class="card-img-top" alt="Blog Layout" loading="lazy">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h2 class="h6 mb-0">Blog Layout</h2>
+              <span class="badge text-bg-dark">web</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gallery-item" data-category="ui">
+        <div class="card soft-card gallery-card" role="button"
+             data-bs-toggle="modal" data-bs-target="#imgModal"
+             data-img="https://picsum.photos/1200/800?random=18"
+             data-title="UI Layout">
+          <img src="https://picsum.photos/800/600?random=18" class="card-img-top" alt="UI Layout" loading="lazy">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h2 class="h6 mb-0">UI Layout</h2>
+              <span class="badge text-bg-dark">ui</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 gallery-item" data-category="code">
+        <div class="card soft-card gallery-card" role="button"
+             data-bs-toggle="modal" data-bs-target="#imgModal"
+             data-img="https://picsum.photos/1200/800?random=19"
+             data-title="Clean Markup">
+          <img src="https://picsum.photos/800/600?random=19" class="card-img-top" alt="Clean Markup" loading="lazy">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <h2 class="h6 mb-0">Clean Markup</h2>
+              <span class="badge text-bg-dark">code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal fade" id="imgModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imgModalTitle">Bild</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"></button>
+        </div>
+        <div class="modal-body">
+          <img id="imgModalImg" class="img-fluid rounded-3" alt="Großansicht">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container py-4">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          <div class="fw-semibold">© 2026 – Wilk WMC Projekt</div>
+          <div class="text-muted small">Galerie</div>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <a class="footer-link" href="index.html">Home</a>
+          <a class="footer-link" href="about.html">Über mich</a>
+          <a class="footer-link" href="gallery.html">Galerie</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
