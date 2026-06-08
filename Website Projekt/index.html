@@ -1,29 +1,22 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Wilk – Responsive Webprojekt</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WMC Lernplaner</title>
 
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- Skip link -->
   <a class="skip-link" href="#content">Zum Inhalt springen</a>
 
-  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
     <div class="container">
       <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="index.html">
-        <span class="brand-dot"></span> Wilk Seite
+        <span class="brand-dot"></span> WMC Lernplaner
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
@@ -33,431 +26,156 @@
 
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="index.html">App</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">Über mich</a></li>
           <li class="nav-item"><a class="nav-link" href="gallery.html">Galerie</a></li>
-          <li class="nav-item ms-lg-2">
-            <a class="btn btn-outline-light btn-sm" href="#kontakt">
-              <i class="bi bi-chat-dots me-1"></i>Kontakt
-            </a>
-          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container position-relative">
-      <div class="row align-items-center py-5">
-        <div class="col-lg-7 text-light">
-          <span class="badge rounded-pill text-bg-light text-dark mb-3">
-            <i class="bi bi-lightning-charge-fill me-1"></i>Bootstrap 5 · HTML · CSS · JS
-          </span>
-
-          <h1 class="display-4 fw-bold lh-sm mb-3">
-            Professionelle, responsive Webseite
-          </h1>
-
-          <p class="lead text-light-75 mb-4">
-            Sauberes Layout, moderne Komponenten, bessere Struktur & mehr Inhalte –
-            ideal als WMC/Schulprojekt oder Portfolio-Basis.
+  <header class="app-hero">
+    <div class="container py-5">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <p class="eyebrow mb-2">Individuelles WMC Projekt</p>
+          <h1 class="display-5 fw-bold mb-3">Plane deine Aufgaben und speichere deinen Fortschritt.</h1>
+          <p class="lead mb-0">
+            Diese kleine Webapplikation verwaltet Projektaufgaben mit JavaScript, einem State-Objekt
+            und Local Storage.
           </p>
-
-          <div class="d-flex flex-wrap gap-2">
-            <a class="btn btn-success btn-lg" href="#features">
-              <i class="bi bi-check2-circle me-2"></i>Was ist drin?
-            </a>
-            <a class="btn btn-outline-light btn-lg" href="gallery.html">
-              <i class="bi bi-images me-2"></i>Zur Galerie
-            </a>
-          </div>
-
-          <div class="hero-stats mt-5">
-            <div class="stat">
-              <div class="stat-number">3</div>
-              <div class="stat-label">Seiten</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">8+</div>
-              <div class="stat-label">Sektionen</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Responsive</div>
-            </div>
-          </div>
         </div>
 
-        <div class="col-lg-5 mt-5 mt-lg-0">
-          <div class="glass-card p-4 p-lg-4">
-            <h2 class="h5 fw-semibold mb-3">
-              <i class="bi bi-clipboard-check me-2"></i>Projektübersicht
-            </h2>
-
-            <ul class="list-unstyled mb-4">
-              <li class="d-flex gap-2 mb-2"><i class="bi bi-check-circle-fill text-success"></i>Grid-System & Cards</li>
-              <li class="d-flex gap-2 mb-2"><i class="bi bi-check-circle-fill text-success"></i>Galerie mit Filter & Modal</li>
-              <li class="d-flex gap-2 mb-2"><i class="bi bi-check-circle-fill text-success"></i>Formular mit Validierung</li>
-              <li class="d-flex gap-2"><i class="bi bi-check-circle-fill text-success"></i>Custom CSS Design-System</li>
-            </ul>
-
-            <a class="btn btn-dark w-100" href="about.html">
-              Mehr über das Projekt <i class="bi bi-arrow-right ms-1"></i>
-            </a>
-
-            <p class="text-muted small mb-0 mt-3">
-              Tipp: Du kannst das als Basis nutzen und Inhalte/Branding anpassen.
-            </p>
-          </div>
+        <div class="col-lg-5">
+          <section class="summary-panel" aria-labelledby="summary-title">
+            <h2 id="summary-title" class="h5 mb-3">Fortschritt</h2>
+            <div class="progress mb-3" role="progressbar" aria-label="Projektfortschritt">
+              <div id="progressBar" class="progress-bar bg-success" style="width: 0%">0%</div>
+            </div>
+            <div class="row text-center g-2">
+              <div class="col-4">
+                <div class="summary-number" id="totalCount">0</div>
+                <div class="summary-label">Aufgaben</div>
+              </div>
+              <div class="col-4">
+                <div class="summary-number" id="openCount">0</div>
+                <div class="summary-label">Offen</div>
+              </div>
+              <div class="col-4">
+                <div class="summary-number" id="doneCount">0</div>
+                <div class="summary-label">Erledigt</div>
+              </div>
+            </div>
+          </section>
         </div>
-
       </div>
     </div>
-
-    <div class="hero-wave"></div>
   </header>
 
   <main id="content" class="container my-5">
+    <section class="row g-4 align-items-start" aria-label="Lernplaner Anwendung">
+      <div class="col-lg-4">
+        <article class="app-panel">
+          <h2 class="h4 mb-3">Neue Aufgabe</h2>
 
-    <!-- Features -->
-    <section id="features" class="mb-5">
-      <div class="section-title">
-        <h2 class="mb-1">Features</h2>
-        <p class="text-muted mb-0">Moderne Website-Bausteine, klar strukturiert.</p>
-      </div>
-
-      <div class="row g-4 mt-2">
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card h-100">
-            <div class="feature-icon"><i class="bi bi-phone"></i></div>
-            <h3 class="h6 fw-semibold">Mobile First</h3>
-            <p class="text-muted mb-0">Optimiert für Smartphone, Tablet und Desktop.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card h-100">
-            <div class="feature-icon"><i class="bi bi-layout-text-window"></i></div>
-            <h3 class="h6 fw-semibold">Saubere Struktur</h3>
-            <p class="text-muted mb-0">Semantisches HTML und klare Sektionen.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card h-100">
-            <div class="feature-icon"><i class="bi bi-palette"></i></div>
-            <h3 class="h6 fw-semibold">Custom Design</h3>
-            <p class="text-muted mb-0">Eigenes CSS mit Variablen & sauberer Typografie.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card h-100">
-            <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
-            <h3 class="h6 fw-semibold">Besseres UX</h3>
-            <p class="text-muted mb-0">Hover-States, Fokus-Styling, sinnvolle Abstände.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Artikel + Sidebar -->
-    <section class="mb-5">
-      <div class="section-title">
-        <h2 class="mb-1">Artikelübersicht</h2>
-        <p class="text-muted mb-0">Kurze Erklärungen + Nutzen im Projekt.</p>
-      </div>
-
-      <div class="row g-4 mt-2">
-        <div class="col-lg-8">
-
-          <article class="card soft-card mb-4">
-            <div class="card-body p-4">
-              <div class="d-flex align-items-start gap-3">
-                <div class="mini-icon"><i class="bi bi-braces"></i></div>
-                <div>
-                  <h3 class="h5 mb-2">Was ist HTML?</h3>
-                  <p class="mb-0 text-muted">
-                    HTML definiert die Struktur (Überschriften, Absätze, Navigation, Inhalte).
-                    In diesem Projekt ist die Seite semantisch in Header, Main, Sections und Footer aufgeteilt.
-                  </p>
-                </div>
-              </div>
+          <form id="taskForm" novalidate>
+            <div class="mb-3">
+              <label for="taskTitle" class="form-label">Titel</label>
+              <input id="taskTitle" class="form-control" maxlength="60" required placeholder="z.B. JavaScript erklären">
             </div>
-          </article>
 
-          <article class="card soft-card mb-4">
-            <div class="card-body p-4">
-              <div class="d-flex align-items-start gap-3">
-                <div class="mini-icon"><i class="bi bi-droplet"></i></div>
-                <div>
-                  <h3 class="h5 mb-2">Was ist CSS?</h3>
-                  <p class="mb-0 text-muted">
-                    CSS steuert Layout, Farben, Abstände, Animationen und Responsivität.
-                    Wir nutzen CSS-Variablen und definieren ein kleines Design-System.
-                  </p>
-                </div>
-              </div>
+            <div class="mb-3">
+              <label for="taskCategory" class="form-label">Kategorie</label>
+              <select id="taskCategory" class="form-select">
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Präsentation">Präsentation</option>
+              </select>
             </div>
-          </article>
 
-          <article class="card soft-card">
-            <div class="card-body p-4">
-              <div class="d-flex align-items-start gap-3">
-                <div class="mini-icon"><i class="bi bi-bootstrap"></i></div>
-                <div>
-                  <h3 class="h5 mb-2">Warum Bootstrap?</h3>
-                  <ul class="mb-0 text-muted">
-                    <li>Schnelle Entwicklung mit Grid & Komponenten</li>
-                    <li>Responsives Layout ohne viel Aufwand</li>
-                    <li>Gute Basis für eigene Anpassungen</li>
-                  </ul>
-                </div>
-              </div>
+            <div class="mb-3">
+              <label for="taskPriority" class="form-label">Priorität</label>
+              <select id="taskPriority" class="form-select">
+                <option value="Normal">Normal</option>
+                <option value="Wichtig">Wichtig</option>
+                <option value="Sehr wichtig">Sehr wichtig</option>
+              </select>
             </div>
-          </article>
 
-        </div>
-
-        <aside class="col-lg-4">
-          <div class="card soft-card h-100">
-            <div class="card-body p-4">
-              <h3 class="h5 mb-3">Technische Daten</h3>
-
-              <img
-                src="https://picsum.photos/640/420"
-                class="img-fluid rounded-4 mb-3"
-                alt="Dekoratives Beispielbild"
-                loading="lazy"
-              >
-
-              <div class="table-responsive">
-                <table class="table table-sm align-middle mb-0">
-                  <thead>
-                    <tr>
-                      <th>Feature</th>
-                      <th class="text-end">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Flexbox</td>
-                      <td class="text-end"><span class="badge text-bg-success">Ja</span></td>
-                    </tr>
-                    <tr>
-                      <td>Grid</td>
-                      <td class="text-end"><span class="badge text-bg-success">Ja</span></td>
-                    </tr>
-                    <tr>
-                      <td>Media Queries</td>
-                      <td class="text-end"><span class="badge text-bg-success">Ja</span></td>
-                    </tr>
-                    <tr>
-                      <td>Form Validierung</td>
-                      <td class="text-end"><span class="badge text-bg-success">Ja</span></td>
-                    </tr>
-                    <tr>
-                      <td>Galerie Filter</td>
-                      <td class="text-end"><span class="badge text-bg-success">Ja</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <hr class="my-4">
-
-              <div class="d-grid gap-2">
-                <a class="btn btn-outline-dark" href="gallery.html">
-                  <i class="bi bi-images me-2"></i>Galerie ansehen
-                </a>
-                <a class="btn btn-dark" href="about.html">
-                  <i class="bi bi-person-badge me-2"></i>Über mich
-                </a>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Video -->
-    <section class="mb-5">
-      <div class="section-title">
-        <h2 class="mb-1">Erklärvideo</h2>
-        <p class="text-muted mb-0">Multimedia-Element in sauberem Layout.</p>
-      </div>
-
-      <div class="card soft-card mt-3">
-        <div class="card-body p-3 p-md-4">
-          <div class="ratio ratio-16x9 rounded-4 overflow-hidden">
-            <iframe
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="Erklärvideo"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="mb-5">
-      <div class="section-title">
-        <h2 class="mb-1">FAQ</h2>
-        <p class="text-muted mb-0">Kurze Antworten zu typischen Projektfragen.</p>
-      </div>
-
-      <div class="accordion mt-3" id="faq">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
-              Ist das wirklich responsive?
+            <button class="btn btn-success w-100" type="submit">
+              <i class="bi bi-plus-circle me-2"></i>Aufgabe hinzufügen
             </button>
-          </h2>
-          <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faq">
-            <div class="accordion-body text-muted">
-              Ja. Bootstrap Grid + zusätzliche Breakpoints im eigenen CSS sorgen für gute Darstellung auf allen Geräten.
-            </div>
-          </div>
-        </div>
+          </form>
+        </article>
 
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
-              Kann ich Farben/Schrift schnell ändern?
-            </button>
-          </h2>
-          <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faq">
-            <div class="accordion-body text-muted">
-              Ja. In <code>style.css</code> sind CSS-Variablen definiert (Theme-Farben, Radius, Schatten, etc.).
-            </div>
+        <article class="app-panel mt-4">
+          <h2 class="h5 mb-3">Ansicht</h2>
+          <div class="btn-group w-100 mb-3" role="group" aria-label="Aufgaben filtern">
+            <button class="btn btn-outline-dark filter-btn active" type="button" data-filter="all">Alle</button>
+            <button class="btn btn-outline-dark filter-btn" type="button" data-filter="open">Offen</button>
+            <button class="btn btn-outline-dark filter-btn" type="button" data-filter="done">Erledigt</button>
           </div>
-        </div>
 
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3">
-              Brauche ich einen Server?
-            </button>
-          </h2>
-          <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faq">
-            <div class="accordion-body text-muted">
-              Nein. Du kannst alles lokal öffnen. Für echtes Formular-Senden bräuchtest du Backend/Service – hier ist es Demo.
+          <button id="themeButton" class="btn btn-outline-dark w-100" type="button">
+            <i class="bi bi-moon-stars me-2"></i>Theme wechseln
+          </button>
+        </article>
+      </div>
+
+      <div class="col-lg-8">
+        <section class="app-panel" aria-labelledby="task-list-title">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+            <div>
+              <h2 id="task-list-title" class="h4 mb-1">Aufgabenliste</h2>
+              <p id="activeFilterText" class="text-muted mb-0">Alle Aufgaben werden angezeigt.</p>
             </div>
+
+            <button id="resetButton" class="btn btn-outline-danger" type="button">
+              <i class="bi bi-arrow-counterclockwise me-2"></i>Zurücksetzen
+            </button>
+          </div>
+
+          <div id="emptyState" class="empty-state">
+            <i class="bi bi-journal-check"></i>
+            <p class="mb-0">Noch keine Aufgaben vorhanden.</p>
+          </div>
+
+          <ul id="taskList" class="task-list" aria-live="polite"></ul>
+        </section>
+      </div>
+    </section>
+
+    <section class="mt-5" aria-labelledby="requirements-title">
+      <div class="app-panel">
+        <h2 id="requirements-title" class="h4 mb-3">Erfüllte Anforderungen</h2>
+        <div class="row g-3">
+          <div class="col-md-6 col-lg-3">
+            <div class="requirement-box">Semantisches HTML</div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="requirement-box">CSS Styling</div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="requirement-box">DOM-Modifikation</div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="requirement-box">Local Storage</div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Kontakt -->
-    <section id="kontakt" class="mb-5">
-      <div class="section-title">
-        <h2 class="mb-1">Feedback</h2>
-        <p class="text-muted mb-0">Mit Validierung und sauberem UX.</p>
-      </div>
-
-      <div class="row g-4 mt-2">
-        <div class="col-lg-6">
-          <div class="card soft-card h-100">
-            <div class="card-body p-4">
-              <h3 class="h5">Kontaktinfos</h3>
-              <p class="text-muted mb-4">
-                Beispielbereich für E-Mail, Standort oder Social Links.
-              </p>
-
-              <div class="d-flex align-items-center gap-3 mb-3">
-                <div class="mini-icon"><i class="bi bi-envelope"></i></div>
-                <div>
-                  <div class="small text-muted">E-Mail</div>
-                  <div class="fw-semibold">example@mail.com</div>
-                </div>
-              </div>
-
-              <div class="d-flex align-items-center gap-3 mb-3">
-                <div class="mini-icon"><i class="bi bi-geo-alt"></i></div>
-                <div>
-                  <div class="small text-muted">Ort</div>
-                  <div class="fw-semibold">Wien, Österreich</div>
-                </div>
-              </div>
-
-              <div class="d-flex gap-2">
-                <a class="btn btn-outline-dark btn-sm" href="#" aria-label="Instagram">
-                  <i class="bi bi-instagram"></i>
-                </a>
-                <a class="btn btn-outline-dark btn-sm" href="#" aria-label="GitHub">
-                  <i class="bi bi-github"></i>
-                </a>
-                <a class="btn btn-outline-dark btn-sm" href="#" aria-label="LinkedIn">
-                  <i class="bi bi-linkedin"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="card soft-card">
-            <div class="card-body p-4">
-              <form class="needs-validation" novalidate>
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label for="name" class="form-label">Name</label>
-                    <input id="name" class="form-control" required>
-                    <div class="invalid-feedback">Bitte Name eingeben.</div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="email" class="form-label">E-Mail</label>
-                    <input id="email" type="email" class="form-control" required>
-                    <div class="invalid-feedback">Bitte gültige E-Mail eingeben.</div>
-                  </div>
-
-                  <div class="col-12">
-                    <label for="topic" class="form-label">Thema</label>
-                    <select id="topic" class="form-select" required>
-                      <option value="" selected disabled>Bitte wählen…</option>
-                      <option>Allgemeine Anfrage</option>
-                      <option>Feedback</option>
-                      <option>Projektidee</option>
-                    </select>
-                    <div class="invalid-feedback">Bitte ein Thema wählen.</div>
-                  </div>
-
-                  <div class="col-12">
-                    <label for="msg" class="form-label">Nachricht</label>
-                    <textarea id="msg" class="form-control" rows="5" required></textarea>
-                    <div class="invalid-feedback">Bitte Nachricht eingeben.</div>
-                  </div>
-
-                  <div class="col-12 d-flex align-items-center gap-2">
-                    <button class="btn btn-success" type="submit">
-                      <i class="bi bi-send me-2"></i>Senden
-                    </button>
-                    <span class="text-muted small">Demo: wird nicht wirklich versendet.</span>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
   </main>
 
   <footer class="footer">
     <div class="container py-4">
       <div class="row g-3 align-items-center">
         <div class="col-md-6 text-center text-md-start">
-          <div class="fw-semibold">© 2026 – Wilk WMC Projekt</div>
-          <div class="text-muted small">Built with Bootstrap 5 + Custom CSS</div>
+          <div class="fw-semibold">© 2026 - Wilk WMC Projekt</div>
+          <div class="text-muted small">HTML, CSS und JavaScript</div>
         </div>
         <div class="col-md-6 text-center text-md-end">
-          <a class="footer-link" href="index.html">Home</a>
+          <a class="footer-link" href="index.html">App</a>
           <a class="footer-link" href="about.html">Über mich</a>
           <a class="footer-link" href="gallery.html">Galerie</a>
         </div>
