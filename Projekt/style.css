@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f3f5f7;
+    color: #222;
+}
+
+header {
+    background-color: #264653;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+section {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+h1,
+h2 {
+    margin-top: 0;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.random-controls {
+    margin-top: 12px;
+}
+
+input[type="number"] {
+    width: 70px;
+    padding: 7px;
+}
+
+button {
+    background-color: #2a9d8f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 9px 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #21867a;
+}
+
+.message {
+    font-weight: bold;
+}
+
+.error {
+    color: #b00020;
+}
+
+.success {
+    color: #176b35;
+}
+
+.table-box {
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+td,
+th {
+    border: 1px solid #888;
+    padding: 8px 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #e9ecef;
+}
+
+canvas {
+    display: block;
+    max-width: 100%;
+    border: 1px solid #aaa;
+    background-color: #ffffff;
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legend-box {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #333;
+    display: inline-block;
+}
+
+.legend-line {
+    width: 24px;
+    height: 4px;
+    display: inline-block;
+}
+
+.center-color {
+    background-color: #2a9d8f;
+}
+
+.articulation-color {
+    background-color: #457b9d;
+}
+
+.bridge-color {
+    background-color: #d62828;
+}
+
+.result-list {
+    line-height: 1.8;
+}

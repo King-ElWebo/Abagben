@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphenrechner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Graphenrechner</h1>
+        <p>CSV-Datei mit Adjazenzmatrix laden und Eigenschaften des Graphen berechnen.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Eingabe</h2>
+
+            <div class="controls">
+                <label for="csvFile">CSV-Datei auswählen:</label>
+                <input type="file" id="csvFile" accept=".csv,text/csv">
+
+                <button id="loadExampleButton">Beispiel laden</button>
+                <button id="calculateButton">Graph berechnen</button>
+            </div>
+
+            <div class="controls random-controls">
+                <label for="randomNodeCount">Knoten:</label>
+                <input type="number" id="randomNodeCount" min="2" max="12" value="6">
+
+                <label for="randomEdgeChance">Kantendichte (%):</label>
+                <input type="number" id="randomEdgeChance" min="0" max="100" value="35">
+
+                <button id="randomButton">Zufallsgraph erzeugen</button>
+            </div>
+
+            <p id="message" class="message"></p>
+        </section>
+
+        <section>
+            <h2>Adjazenzmatrix</h2>
+            <div id="matrixOutput" class="table-box"></div>
+        </section>
+
+        <section>
+            <h2>Graph</h2>
+            <div class="legend">
+                <span><span class="legend-box center-color"></span>Zentrum</span>
+                <span><span class="legend-box articulation-color"></span>Artikulation</span>
+                <span><span class="legend-line bridge-color"></span>Brücke</span>
+            </div>
+            <canvas id="graphCanvas" width="600" height="400"></canvas>
+        </section>
+
+        <section>
+            <h2>Distanzmatrix</h2>
+            <div id="distanceOutput" class="table-box"></div>
+        </section>
+
+        <section>
+            <h2>Exzentrizitäten</h2>
+            <div id="eccentricityOutput"></div>
+        </section>
+
+        <section>
+            <h2>Radius, Durchmesser und Zentrum</h2>
+            <div id="graphValuesOutput"></div>
+        </section>
+
+        <section>
+            <h2>Zusammenhangskomponenten</h2>
+            <div id="componentsOutput"></div>
+        </section>
+
+        <section>
+            <h2>Artikulationen</h2>
+            <div id="articulationsOutput"></div>
+        </section>
+
+        <section>
+            <h2>Brücken</h2>
+            <div id="bridgesOutput"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
